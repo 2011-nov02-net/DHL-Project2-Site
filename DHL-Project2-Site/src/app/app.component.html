@@ -1,19 +1,14 @@
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
+  <span class="panel-title" style="margin-left:10%">Welcome</span>
   <div class="spacer"></div>
-  <span>Welcome</span>
-  <div class="spacer"></div>
-  <button mat-button color="primary">Login</button>
-  <div class="spacer"></div>
+  <button mat-button style="margin-right:10%">Login</button>
 </div>
-
-<app-navigation></app-navigation>
 
 <div class="content" role="main">
   <router-outlet></router-outlet>
 
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-
+  <h1>Welcome</h1>
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
     <span>{{ title }} app is running!</span>
@@ -22,7 +17,5 @@
   <button mat-button mat-button color="primary" routerLink="/login">Login</button>
 
   <!-- Footer -->
-  <footer>
-      Footer
-  </footer>
+  <footer hidden=true></footer>
 </div>

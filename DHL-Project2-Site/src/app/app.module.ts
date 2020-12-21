@@ -7,7 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 
 import { MatSliderModule } from '@angular/material/slider';
-import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
