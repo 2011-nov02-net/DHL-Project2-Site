@@ -1,8 +1,8 @@
 <div class="login-page">
     <div class="form">
-      <form (submit)="loginUser($event)" class="login-form">
-        <input type="email" placeholder="email"/>
-        <button>login</button>
+      <form class="login-form" [formGroup]="myForm">
+        <input type="email" placeholder="email" formControlName="email"/>
+        <button (click)="loginUser()">login</button>
       </form>
     </div>
   </div>

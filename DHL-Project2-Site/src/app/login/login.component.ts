@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { User } from '../shared/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +10,21 @@ import { User } from '../shared/user.model';
 })
 export class LoginComponent implements OnInit {
 
+  myForm: FormGroup;
+  // email = new FormControl('');
   user:User
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.myForm = new FormGroup({'email': new FormControl('')})
   }
 
-  loginUser(event) {
-    console.log(event);
+  loginUser() {
+    console.log(this.myForm.get('email').value);
+    sessionStorage.setItem('currentEmail', this.myForm.get('email').value );
+    this.router.navigate(['/']);
   }
 
 }
