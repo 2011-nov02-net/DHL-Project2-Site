@@ -1,0 +1,55 @@
+trigger:
+- master
+
+pr:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  appDir: DHL-Project2-Site
+
+steps:
+- task: NodeTool@0
+  displayName: node install
+  inputs:
+    versionSpec: '14.x'
+
+- script: npm ci
+  displayName: npm install
+  workingDirectory: $(appDir)
+
+- script: npx ng build --prod
+  displayName: ng build
+  workingDirectory: $(appDir)
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud Project 2'
+    organization: '2011-nov02-net'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: '2011-nov02-net_DHL-Project2-Site'
+    cliProjectName: 'DHL-Project2-Site'
+    cliProjectVersion: '1.0.0'
+    cliSources: '$(appDir)/src,$(appDir)/e2e'
+    extraProperties: 'sonar.coverage.exclusions=**/*.spec.ts,$(appDir)/e2e/**/*'
+
+- task: SonarCloudAnalyze@1
+  displayName: sonarcloud run
+
+- task: SonarCloudPublish@1
+  displayName: sonarcloud publish
+  inputs:
+    pollingTimeoutSec: '300'
+
+- task: AzureRmWebAppDeployment@4
+  displayName: azure app service deploy
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(1)(b039e9a7-436a-45e5-9c21-b3c078fecd2c)'
+    appType: 'webAppLinux'
+    WebAppName: 'DHL-Project2-Site'
+    packageForLinux: '$(appDir)/dist/$(appDir)'
