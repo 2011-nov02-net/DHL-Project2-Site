@@ -18,7 +18,11 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     LoginComponent
+=======
+    LoginComponent,
+>>>>>>> 0ef1d38df5a0cec6bbcc14909f812834927eac35
   ],
   imports: [
     BrowserModule,
