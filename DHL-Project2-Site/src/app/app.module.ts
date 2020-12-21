@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { MatSliderModule } from '@angular/material/slider';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -18,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule
+	AppRoutingModule,
+	ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
