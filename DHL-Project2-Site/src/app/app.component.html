@@ -10,6 +10,7 @@
 <app-navigation></app-navigation>
 
 <div class="content" role="main">
+  <router-outlet></router-outlet>
 
   <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
 
@@ -18,7 +19,7 @@
     <span>{{ title }} app is running!</span>
   </div>
 
-  <button mat-button mat-button color="primary">Login</button>
+  <button mat-button mat-button color="primary" routerLink="/login">Login</button>
 
   <!-- Footer -->
   <footer>
