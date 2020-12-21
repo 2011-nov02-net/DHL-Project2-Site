@@ -43,13 +43,12 @@ steps:
   displayName: sonarcloud publish
   inputs:
     pollingTimeoutSec: '300'
-
 - task: AzureRmWebAppDeployment@4
   displayName: azure app service deploy
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(1)(b039e9a7-436a-45e5-9c21-b3c078fecd2c)'
-    appType: 'webAppLinux'
+    appType: 'webApp'
     WebAppName: 'DHL-Project2-Site'
     packageForLinux: '$(appDir)/dist/$(appDir)'
