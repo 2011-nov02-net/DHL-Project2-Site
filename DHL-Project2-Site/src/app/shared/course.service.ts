@@ -33,8 +33,8 @@ export class CourseService {
     console.log("getEnrollments");
     debugger;
     this.user = await this.getUserByEmail(email).then(u => this.user = u) as User;
-    console.log(this.user.Id);
-    return this.http.get<Course[]>(`${this.baseUrl}/${this.user.Id}/courses`, this.httpOptions)
+    console.log(this.user.id);
+    return this.http.get<Course[]>(`${this.baseUrl}/${this.user.id}/courses`, this.httpOptions)
       .toPromise();
   }
 }
