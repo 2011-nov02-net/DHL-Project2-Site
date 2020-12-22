@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { User } from '../shared/user.model';
 import { Router } from '@angular/router';
+
+import { User } from '../shared/Models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = new FormGroup({'email': new FormControl('')});
-    
+
   }
 
   loginUser() {

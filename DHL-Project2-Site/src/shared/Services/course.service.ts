@@ -5,8 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap} from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
-import { User } from './user.model';
-import { Course } from './course.model';
+import { User } from '../Models/user.model';
+import { Course } from '../Models/course.model';
 
 @Injectable({
   providedIn: 'root'

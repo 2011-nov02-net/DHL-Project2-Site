@@ -1,0 +1,9 @@
+
+<nav>
+  <mat-toolbar class="toolbar" color="primary" role="banner">
+    <span class="panel-title" id='page-name' style="margin-left:10%">Course Portal</span>
+    <span class="spacer"></span>
+    <button *ngIf="user == null" mat-button id='login' routerLink="/login" style="margin-right:10%">Login</button>
+    <button *ngIf="user" mat-button id='logout' routerLink="/" style="margin-right:10%">Logout</button>
+  </mat-toolbar>
+</nav>
