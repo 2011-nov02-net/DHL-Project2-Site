@@ -15,11 +15,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { CourseComponent } from './Course/course.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,8 +35,10 @@ import { AppRoutingModule } from './app-routing.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-	AppRoutingModule,
-	ReactiveFormsModule
+  AppRoutingModule,
+  MatCardModule,
+  ReactiveFormsModule,
+  HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   myForm: FormGroup;
   // email = new FormControl('');
   user:User
@@ -18,13 +17,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.myForm = new FormGroup({'email': new FormControl('')})
+    this.myForm = new FormGroup({'email': new FormControl('')});
+    
   }
 
   loginUser() {
     console.log(this.myForm.get('email').value);
     sessionStorage.setItem('currentEmail', this.myForm.get('email').value );
-    this.router.navigate(['/']);
+    this.router.navigate(['/course']);
   }
 
 }
