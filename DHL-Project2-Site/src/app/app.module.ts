@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { MatSliderModule } from '@angular/material/slider';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -12,10 +15,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { CourseComponent } from './Course/course.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +35,10 @@ import { AppRoutingModule } from './app-routing.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule
+  AppRoutingModule,
+  MatCardModule,
+  ReactiveFormsModule,
+  HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
