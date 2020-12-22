@@ -25,7 +25,7 @@ export class CourseComponent implements OnInit {
 
   async getCourses(): Promise<void> {
     this.courses = await this.courseService.getEnrollments(this.email).then(c => this.courses = c);
-
+    debugger;
     console.log(this.user.Id);
   }
 
