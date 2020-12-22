@@ -1,12 +1,12 @@
 export class Course {
-    Id: number;
-    Name: string;
-	Description: string;
-	CreditValue: number;
-	DepartmentId: number;
-	Code?: number;
-	Session: number;
-	Category: number;
-	Capacity: number;
-	WaitlistCapacity: number;
+    id: number;
+    name: string;
+	description: string;
+	creditValue: number;
+	departmentId: number;
+	code?: number;
+	session: number;
+	category: number;
+	capacity: number;
+	waitlistCapacity: number;
 }
