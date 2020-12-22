@@ -5,3 +5,9 @@
         <span class="badge">{{course.id}} | {{course.name}}</span>{{course.description}}
     </li>
 </ul>
+
+<ul class="Courses">
+	<li *ngFor="let icourse of instructorCourse">
+		<span class="badge">{{icourse.id}} | {{icourse.name}}</span>{{icourse.description}}
+	</li>
+</ul>

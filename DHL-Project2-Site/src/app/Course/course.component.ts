@@ -11,6 +11,7 @@ import { User } from '../shared/user.model';
 })
 export class CourseComponent implements OnInit {
   courses: Course[] | Course;
+  instructorCourse: Course[] | Course;
   email: string;
   user: User;
   selectedCourse: Course | any;
@@ -21,10 +22,16 @@ export class CourseComponent implements OnInit {
     debugger;
     this.email = sessionStorage.getItem('currentEmail');
     this.getCourses();
+    this.getInstructorCourses();
   }
 
   async getCourses(): Promise<void> {
     this.courses = await this.courseService.getEnrollments(this.email).then(c => this.courses = c);
+  }
+
+  async getInstructorCourses(): Promise<void> {
+    this.instructorCourse = await this.courseService.getInstructorCourses(this.email).then(c => this.instructorCourse = c);
+    debugger;
   }
 
   onSelect(course:Course):void {
