@@ -1,8 +1,7 @@
 <h2>Courses</h2>
+<h3>{{email}}</h3>
 <ul class="Courses">
-    <li *ngFor="let course of courses"
-        [class.selected]="course === selectedCourse"
-        (click)="onSelect(course)">
-        <span class="badge">{{course.Name}}</span>{{course.Description}}
+    <li *ngFor="let course of courses">
+        <span class="badge">{{course.Id}} | {{course.Name}}</span>{{course.Description}}
     </li>
 </ul>

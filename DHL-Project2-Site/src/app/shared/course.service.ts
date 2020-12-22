@@ -10,7 +10,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class CourseService {
-  private baseUrl = `${environment.baseUrl}/api/user`;
+  private baseUrl = `${environment.baseUrl}/api/User`;
   private userEmail = sessionStorage.getItem('currentEmail');
   private user : User;
 
@@ -20,12 +20,18 @@ export class CourseService {
 	  headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  getUserByEmail(email) : Observable<User> {
-    return this.http.get<User>(`${this.baseUrl}/find/${this.userEmail}`, this.httpOptions);
+  getUserByEmail(email: string) : Promise<User> {
+    console.log("getUserByEmail");
+    debugger;
+  	return this.http.get<User>(`${this.baseUrl}/find/${email}`, this.httpOptions)
+	    .toPromise();
   }
 
-  getEnrollments(email) : Observable<Course[]> {
-    this.getUserByEmail(email).subscribe(u => this.user = u);
-    return this.http.get<Course[]>(`${this.baseUrl}/${this.user.Id}/courses`, this.httpOptions);
+  async getEnrollments(email: string) : Promise<Course[]> {
+    console.log("getEnrollments");
+    debugger;
+    await this.getUserByEmail(email).then(u => this.user = u);
+    return this.http.get<Course[]>(`${this.baseUrl}/${this.user.Id}/courses`, this.httpOptions)
+      .toPromise();
   }
 }
