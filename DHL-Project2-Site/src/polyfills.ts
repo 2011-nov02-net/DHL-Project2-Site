@@ -61,3 +61,4 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+import * as mdc from '../node_modules/material-components-web/dist/material-components-web.min.js';
