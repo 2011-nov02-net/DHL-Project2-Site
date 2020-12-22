@@ -23,8 +23,9 @@ export class CourseComponent implements OnInit {
     this.getCourses();
   }
 
-  getCourses(): void {
-    this.courseService.getUserByEmail(this.email).then(u => this.user = u);
+  async getCourses(): Promise<void> {
+    this.courses = await this.courseService.getEnrollments(this.email).then(c => this.courses = c);
+
     console.log(this.user.Id);
   }
 

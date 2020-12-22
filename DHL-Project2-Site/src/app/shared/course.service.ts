@@ -32,7 +32,7 @@ export class CourseService {
   async getEnrollments(email: string) : Promise<Course[]> {
     console.log("getEnrollments");
     debugger;
-    await this.getUserByEmail(email).then(u => this.user = u);
+    this.user = await this.getUserByEmail(email).then(u => this.user = u);
     return this.http.get<Course[]>(`${this.baseUrl}/${this.user.Id}/courses`, this.httpOptions)
       .toPromise();
   }
