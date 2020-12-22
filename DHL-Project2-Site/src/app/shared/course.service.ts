@@ -17,8 +17,8 @@ export class CourseService {
   constructor(private http: HttpClient) { }
 
   httpOptions = {
-	  headers: new HttpHeaders({'Content-Type': 'application/json'});
-  }
+	  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  };
 
   getUserByEmail(email) : Observable<User> {
     return this.http.get<User>(`${this.baseUrl}/find/${this.userEmail}`, this.httpOptions);
