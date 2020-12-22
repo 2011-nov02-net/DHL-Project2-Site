@@ -11,7 +11,7 @@ import { User } from './user.model';
 })
 export class CourseService {
   private baseUrl = `${environment.baseUrl}/api/user`;
-  private userEmail = localStorage.getItem('currentEmail');
+  private userEmail = sessionStorage.getItem('currentEmail');
   private user : User;
 
   constructor(private http: HttpClient) { }
