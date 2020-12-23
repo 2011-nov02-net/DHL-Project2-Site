@@ -5,16 +5,9 @@
 
 <app-navbar></app-navbar>
 <div class="content" role="main">
+  <h1 *ngIf="user">Welcome {{user}}</h1>
   <router-outlet></router-outlet>
-
-
-	<h1 *ngIf="user">Welcome {{user}}</h1>
-
-
-	<h1></h1>
-
-  <button mat-button mat-button color="primary" routerLink="/login">Login</button>
-  <button mat-button mat-button color="primary" routerLink="/class">Courses</button>
+  
    <!-- Footer -->
   <footer hidden=true></footer>
 </div>

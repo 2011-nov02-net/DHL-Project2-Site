@@ -21,7 +21,6 @@ export class CourseComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    debugger;
     this.email = sessionStorage.getItem('currentEmail');
     this.getCourses();
     this.getInstructorCourses();
@@ -33,7 +32,6 @@ export class CourseComponent implements OnInit {
 
   async getInstructorCourses(): Promise<void> {
     this.instructorCourse = await this.courseService.getInstructorCourses(this.email).then(c => this.instructorCourse = c);
-    debugger;
   }
 
   onSelect(course:Course):void {

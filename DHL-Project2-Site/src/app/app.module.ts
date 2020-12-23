@@ -19,6 +19,8 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { CourseComponent } from '../course/course.component';
 import { LoginComponent } from '../login/login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { UserService } from 'src/shared/Services/user.service';
+import { UserComponent } from 'src/user/user.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     NavbarComponent,
     LoginComponent,
     CourseComponent,
+    UserComponent,
   ],
   imports: [
   BrowserModule,
@@ -42,7 +45,7 @@ import { AppRoutingModule } from './app-routing.module';
   ReactiveFormsModule,
   HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

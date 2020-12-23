@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
+    debugger;
     console.log(this.myForm.get('email').value);
     sessionStorage.setItem('currentEmail', this.myForm.get('email').value );
     this.router.navigate(['/course']);
