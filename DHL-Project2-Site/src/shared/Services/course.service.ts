@@ -24,13 +24,12 @@ export class CourseService {
 
   getUserByEmail(email: string) : Promise<User> {
     console.log("getUserByEmail");
-    debugger;
   	return this.http.get<User>(`${this.baseUrl}/User/find/${email}`, this.httpOptions)
 	    .toPromise();
   }
 
   async getEnrollments(email: string) : Promise<Course[]> {
-    console.log("getEnrollments");
+	console.log("getEnrollments");
     this.user = await this.getUserByEmail(email).then(u => this.user = u) as User;
     console.log(this.user.id);
     return this.http.get<Course[]>(`${this.baseUrl}/User/${this.user.id}/courses`, this.httpOptions)
@@ -38,7 +37,6 @@ export class CourseService {
   }
 
   async getInstructorCourses(email: string) : Promise<Course[]>{
-    debugger;
     this.user = await this.getUserByEmail(email).then(u => this.user = u) as User;
     return this.http.get<Course[]>(`${this.baseUrl}/Course/instructor/${this.user.id}`).toPromise();
   }
