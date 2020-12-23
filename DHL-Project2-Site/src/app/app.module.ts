@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -21,6 +22,7 @@ import { LoginComponent } from '../login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from 'src/shared/Services/user.service';
 import { UserComponent } from 'src/user/user.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -29,21 +31,23 @@ import { UserComponent } from 'src/user/user.component';
     LoginComponent,
     CourseComponent,
     UserComponent,
+    WelcomeComponent,
   ],
   imports: [
-  BrowserModule,
-  BrowserAnimationsModule,
-  MatSliderModule,
-  LayoutModule,
-  MatToolbarModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule,
-  AppRoutingModule,
-  MatCardModule,
-  ReactiveFormsModule,
-  HttpClientModule
+	BrowserModule,
+	BrowserAnimationsModule,
+	MatSliderModule,
+	LayoutModule,
+	MatToolbarModule,
+	MatButtonModule,
+	MatSidenavModule,
+	MatIconModule,
+	MatListModule,
+	AppRoutingModule,
+	MatCardModule,
+	ReactiveFormsModule,
+	HttpClientModule,
+	MatTableModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

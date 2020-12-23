@@ -17,6 +17,7 @@ export class CourseComponent implements OnInit {
   email: string;
   user: User;
   selectedCourse: Course | any;
+  columnsToDisplay = ['id', 'name', 'description'];
   constructor(private courseService: CourseService,
               private route: ActivatedRoute) { }
 
