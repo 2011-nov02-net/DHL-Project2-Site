@@ -21,6 +21,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { CourseComponent } from '../course/course.component';
 import { LoginComponent } from '../login/login.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
+import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { WelcomeComponent } from '../welcome/welcome.component';
     LoginComponent,
     CourseComponent,
     WelcomeComponent,
+    AddenrollmentComponent,
   ],
   imports: [
 	BrowserModule,

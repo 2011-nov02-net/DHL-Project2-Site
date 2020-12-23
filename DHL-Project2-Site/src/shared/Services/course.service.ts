@@ -40,4 +40,8 @@ export class CourseService {
     this.user = await this.getUserByEmail(email).then(u => this.user = u) as User;
     return this.http.get<Course[]>(`${this.baseUrl}/Course/instructor/${this.user.id}`).toPromise();
   }
+
+  getAllCourses() : Promise<Course[]> {
+	  return this.http.get<Course[]>(`${this.baseUrl}/course`).toPromise();
+  }
 }
