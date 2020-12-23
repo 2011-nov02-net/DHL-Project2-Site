@@ -15,11 +15,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { CourseComponent } from '../course/course.component';
 import { LoginComponent } from '../login/login.component';
+import { AppRoutingModule } from './app-routing.module';
+import { UserService } from 'src/shared/Services/user.service';
+import { UserComponent } from 'src/user/user.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
 
@@ -29,6 +31,7 @@ import { AddenrollmentComponent } from '../addenrollment/addenrollment.component
     NavbarComponent,
     LoginComponent,
     CourseComponent,
+    UserComponent,
     WelcomeComponent,
     AddenrollmentComponent,
   ],
@@ -48,7 +51,7 @@ import { AddenrollmentComponent } from '../addenrollment/addenrollment.component
 	HttpClientModule,
 	MatTableModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
