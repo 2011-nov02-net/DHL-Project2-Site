@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,19 +31,20 @@ import { WelcomeComponent } from '../welcome/welcome.component';
     WelcomeComponent,
   ],
   imports: [
-  BrowserModule,
-  BrowserAnimationsModule,
-  MatSliderModule,
-  LayoutModule,
-  MatToolbarModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatListModule,
-  AppRoutingModule,
-  MatCardModule,
-  ReactiveFormsModule,
-  HttpClientModule
+	BrowserModule,
+	BrowserAnimationsModule,
+	MatSliderModule,
+	LayoutModule,
+	MatToolbarModule,
+	MatButtonModule,
+	MatSidenavModule,
+	MatIconModule,
+	MatListModule,
+	AppRoutingModule,
+	MatCardModule,
+	ReactiveFormsModule,
+	HttpClientModule,
+	MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
