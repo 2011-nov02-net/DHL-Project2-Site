@@ -17,23 +17,25 @@ export class CourseComponent implements OnInit {
   email: string;
   user: User;
   selectedCourse: Course | any;
+  columnsToDisplay = ['id', 'name', 'description'];
   constructor(private courseService: CourseService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    debugger;
+	debugger;
     this.email = sessionStorage.getItem('currentEmail');
     this.getCourses();
     this.getInstructorCourses();
   }
 
   async getCourses(): Promise<void> {
+	debugger;
     this.courses = await this.courseService.getEnrollments(this.email).then(c => this.courses = c);
   }
 
   async getInstructorCourses(): Promise<void> {
+	debugger;
     this.instructorCourse = await this.courseService.getInstructorCourses(this.email).then(c => this.instructorCourse = c);
-    debugger;
   }
 
   onSelect(course:Course):void {

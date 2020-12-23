@@ -1,13 +1,50 @@
-<h2>Courses</h2>
-<h3>{{email}}</h3>
-<ul class="Courses">
-    <li *ngFor="let course of courses">
-        <span class="badge">{{course.id}} | {{course.name}}</span>{{course.description}}
-    </li>
-</ul>
+<div class="coursesdiv">
+	<h3>{{email}}</h3>
+	<br>
+	<div id="studentList">
+		<h2>Courses</h2>
+		<table mat-table [dataSource]="courses">
+			<ng-container matColumnDef="id">
+				<th mat-header-cell *matHeaderCellDef> Course Id </th>
+				<td mat-cell *matCellDef="let course"> {{course.id}} </td>
+			</ng-container>
 
-<ul class="Courses">
-	<li *ngFor="let icourse of instructorCourse">
-		<span class="badge">{{icourse.id}} | {{icourse.name}}</span>{{icourse.description}}
-	</li>
-</ul>
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef> Course Name </th>
+				<td mat-cell *matCellDef="let course"> {{course.name}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="description">
+				<th mat-header-cell *matHeaderCellDef> Course Description </th>
+				<td mat-cell *matCellDef="let course"> {{course.description}} </td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+			<tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+		</table>
+	</div>
+	<br>
+	<div id="instructorList">
+		<h3>Instructor of Courses</h3>
+
+		<table mat-table [dataSource]="instructorCourse">
+			<ng-container matColumnDef="id">
+				<th mat-header-cell *matHeaderCellDef> Course Id </th>
+				<td mat-cell *matCellDef="let course"> {{course.id}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef> Course Name </th>
+				<td mat-cell *matCellDef="let course"> {{course.name}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="description">
+				<th mat-header-cell *matHeaderCellDef> Course Description </th>
+				<td mat-cell *matCellDef="let course"> {{course.description}} </td>
+			</ng-container>
+
+			<tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+			<tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+		</table>
+	</div>
+</div>
