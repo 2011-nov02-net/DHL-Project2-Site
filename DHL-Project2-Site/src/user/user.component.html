@@ -1,0 +1,9 @@
+<div class="login-page">
+  <div class="form">
+    <form class="register-form" method="POST" [formGroup]="myForm" (ngSubmit)="signUp()">
+      <input type="text" placeholder="Full Name" formControlName="fullName">
+      <input type="email" placeholder="Email" formControlName="email">
+      <button (click)="signUp()">Sign Up</button>
+    </form>
+  </div>
+</div>
