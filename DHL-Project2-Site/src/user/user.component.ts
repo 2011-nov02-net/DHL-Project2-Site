@@ -40,7 +40,6 @@ export class UserComponent implements OnInit {
     
 
   async signUp() {
-    debugger;
     console.log(this.myForm.get('fullName').value);
     console.log(this.myForm.get('email').value);
     var fullName = this.myForm.get('fullName').value;
