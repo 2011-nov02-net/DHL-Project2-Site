@@ -19,6 +19,11 @@
 				<td mat-cell *matCellDef="let course"> {{course.description}} </td>
 			</ng-container>
 
+			<ng-container matColumnDef="enroll">
+				<th mat-header-cell *matHeaderCellDef> Enroll </th>
+				<td mat-cell *matCellDef="let course"> <button (click)="addEnrollment(course.id, user.id)" mat-raised-button>Enroll</button></td>
+			</ng-container>
+
 			<tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
 			<tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
 		</table>
