@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router'
 
@@ -6,7 +6,7 @@ import { LoginComponent } from '../login/login.component';
 import { CourseComponent } from '../course/course.component';
 import { UserComponent } from 'src/user/user.component';
 
-import { WelcomeComponent } from '../welcome/welcome.component';
+// import { WelcomeComponent } from '../welcome/welcome.component';
 import { UserUpdateComponent } from 'src/user-update/user-update.component';
 import { AddenrollmentComponent } from 'src/addenrollment/addenrollment.component';
 import { LandingPageComponent } from 'src/landing-page/landing-page.component';

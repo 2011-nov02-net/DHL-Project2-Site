@@ -45,7 +45,7 @@ export class UserComponent implements OnInit {
     sessionStorage.setItem('currentEmail', email);
 
     try{
-      newUser = await this.userService.signUpUser(newUser);
+      await this.userService.signUpUser(newUser);
       this.router.navigate(['/course']);
     } catch (e) {
       this.router.navigate(['/'])
