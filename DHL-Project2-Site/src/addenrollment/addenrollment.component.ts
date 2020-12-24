@@ -3,6 +3,7 @@ import { Course } from 'src/shared/Models/course.model';
 import { User } from 'src/shared/Models/user.model';
 import { CourseService } from 'src/shared/Services/course.service';
 import { MatTable } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addenrollment',
@@ -19,7 +20,7 @@ export class AddenrollmentComponent implements OnInit {
 
   @ViewChild(MatTable) table: MatTable<any>;
 
-  constructor(private courseService: CourseService) { }
+  constructor(private courseService: CourseService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.email = sessionStorage.getItem('currentEmail');
@@ -53,6 +54,11 @@ export class AddenrollmentComponent implements OnInit {
       }
     }
     this.table.renderRows();
+  }
+
+  async addEnrollment(courseId: number, userId: number): Promise<void> {
+    await this.courseService.enroll(courseId, userId).then();
+    this.router.navigate(['/course']);
   }
   
 }
