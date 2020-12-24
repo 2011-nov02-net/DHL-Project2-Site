@@ -10,9 +10,10 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 import { UserUpdateComponent } from 'src/user-update/user-update.component';
 import { AddenrollmentComponent } from 'src/addenrollment/addenrollment.component';
 import { LogoutComponent } from 'src/logout/logout.component';
+import { LandingPageComponent } from 'src/landing-page/landing-page.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: '', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'course', component: CourseComponent},
   { path: 'signup', component: UserComponent },
