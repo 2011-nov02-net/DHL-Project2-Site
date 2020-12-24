@@ -4,6 +4,11 @@
 		<form class="login-form" [formGroup]="myForm">
 		<input type="email" placeholder="email" formControlName="email"/>
 		<button (click)="loginUser()">login</button>
-		</form>
-	</div>
+    </form>
+
+    <div class='signup'>
+      <label for='sign-up'>Don't have an account, </label>
+      <a routerLink="/signup">Sign Up</a>
+    </div>
+  </div>
 </div>

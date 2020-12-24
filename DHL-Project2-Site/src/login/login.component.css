@@ -1,5 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+#sign-up {
+  float: center;
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+
+#signup {
+  text-align: center;
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -96,5 +107,5 @@ body {
   background: linear-gradient(to left, #76b852, #8DC26F);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  -moz-osx-font-smoothing: grayscale;
 }

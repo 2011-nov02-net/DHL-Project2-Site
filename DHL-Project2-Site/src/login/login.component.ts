@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { LoginService } from '../shared/Services/login.service';
+import { UserService } from '../shared/Services/user.service';
 import { User } from '../shared/Models/user.model';
 
 @Component({
@@ -10,11 +12,14 @@ import { User } from '../shared/Models/user.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   myForm: FormGroup;
-  // email = new FormControl('');
-  user:User
+  user: User;
+
   constructor(
-    private router: Router
+    private router: Router,
+    private userService: UserService,
+    private data: LoginService
   ) { }
 
   ngOnInit(): void {
@@ -22,10 +27,17 @@ export class LoginComponent implements OnInit {
 
   }
 
-  loginUser() {
-    console.log(this.myForm.get('email').value);
-    sessionStorage.setItem('currentEmail', this.myForm.get('email').value );
-    this.router.navigate(['/course']);
+  async loginUser() {
+    try {
+      let email = this.myForm.get('email').value;
+      console.log(email);
+      this.user = await this.userService.getUserByEmail(email);
+      this.data.setUser(this.user);
+      sessionStorage.setItem('currentEmail', email );
+      this.router.navigate(['/course']);
+    } catch (e) {
+      alert('Login failed');
+    }
   }
 
 }
