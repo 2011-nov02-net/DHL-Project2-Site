@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,19 +14,24 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 
-import { AppComponent } from './app.component';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { CourseComponent } from '../course/course.component';
-import { LoginComponent } from '../login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserService } from 'src/shared/Services/user.service';
-import { UserComponent } from 'src/user/user.component';
-import { WelcomeComponent } from '../welcome/welcome.component';
-import { UserUpdateComponent } from '../user-update/user-update.component';
+
+import { AppComponent }           from './app.component';
+import { NavbarComponent }        from '../navbar/navbar.component';
+import { CourseComponent }        from '../course/course.component';
+import { LoginComponent }         from '../login/login.component';
+import { UserComponent }          from '../user/user.component';
+import { WelcomeComponent }       from '../welcome/welcome.component';
+import { UserUpdateComponent }    from '../user-update/user-update.component';
 import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
-import { LogoutComponent } from '../logout/logout.component';
-import { LandingPageComponent } from '../landing-page/landing-page.component';
-import { CourseService } from 'src/shared/Services/course.service';
+import { LogoutComponent }        from '../logout/logout.component';
+import { LandingPageComponent }   from '../landing-page/landing-page.component';
+
+import { UserService } from '../shared/Services/user.service';
+import { CourseService } from '../shared/Services/course.service';
+import { LoginService } from '../shared/Services/login.service';
+
+import { User } from '../shared/Models/user.model';
 
 @NgModule({
   declarations: [
@@ -43,22 +47,26 @@ import { CourseService } from 'src/shared/Services/course.service';
     LandingPageComponent,
   ],
   imports: [
-	BrowserModule,
-	BrowserAnimationsModule,
-	MatSliderModule,
-	LayoutModule,
-	MatToolbarModule,
-	MatButtonModule,
-	MatSidenavModule,
-	MatIconModule,
-	MatListModule,
-	AppRoutingModule,
-	MatCardModule,
-	ReactiveFormsModule,
-	HttpClientModule,
-	MatTableModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    AppRoutingModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatTableModule,
   ],
-  providers: [UserService, CourseService],
+  providers: [
+    UserService,
+    CourseService,
+    LoginService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
