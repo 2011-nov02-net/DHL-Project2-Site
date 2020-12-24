@@ -43,7 +43,6 @@ export class UserUpdateComponent implements OnInit {
   }
 
   async userUpdate() {
-    debugger;
     this.user = await this.courseService.getUserByEmail(this.emailString).then(u => this.user = u);
     console.log(this.myForm.get('name').value);
     console.log(this.myForm.get('email').value);
