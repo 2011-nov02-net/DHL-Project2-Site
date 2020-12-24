@@ -8,6 +8,8 @@ import { UserComponent } from 'src/user/user.component';
 
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { UserUpdateComponent } from 'src/user-update/user-update.component';
+import { AddenrollmentComponent } from 'src/addenrollment/addenrollment.component';
+import { LogoutComponent } from 'src/logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'course', component: CourseComponent},
   { path: 'signup', component: UserComponent },
   { path: 'user-update', component: UserUpdateComponent}
+  { path: 'enroll', component: AddenrollmentComponent },
+  { path: 'logout', component: LogoutComponent },
 ];
 
 @NgModule({
