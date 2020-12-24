@@ -46,7 +46,7 @@ To-do list:
 - Instructors of the course to be able to grade
 - Allow users to see their transcripts
 
-Getting Started:
+Getting Started (Linux Terminal Only):
 
 - git clone https://github.com/2011-nov02-net/DHL-Project2-Site
 - cd into DHL-Project2-Site/DHL-Project2-Site
