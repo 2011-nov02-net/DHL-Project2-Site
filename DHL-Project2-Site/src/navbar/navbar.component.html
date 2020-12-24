@@ -3,10 +3,11 @@
   <mat-toolbar class="toolbar" color="primary" role="banner">
     <button class="panel-title" mat-flat-button color="primary" id='' routerLink="" style="margin-left:10%">Course Portal</button>
     <span class="spacer"></span>
+    <!-- *ngIf="loggedIn == null" -->
+    <!-- *ngIf="loggedIn" -->
+  	<button *ngIf="user != null" mat-button id="enroll" routerLink="/enroll" style="margin-right:5%">Enroll</button>
+    <button *ngIf="user != null" mat-button id='user-update' routerLink="/user-update" style="margin-right:5%">Update Account</button>
     <button *ngIf="user == null" mat-button id='login' routerLink="/login" style="margin-right:5%">Login</button>
-	<button *ngIf="user == null" mat-button id="signup" routerLink="/signup" style="margin-right:5%">Sign Up</button>
-	<button *ngIf="user == null" mat-button id="enroll" routerLink="/enroll" style="margin-right:5%">Enroll</button>
-    <button *ngIf="user == null" mat-button id='logout' routerLink="/logout" style="margin-right:5%">Logout</button>
-    <button *ngIf="user == null" mat-button id='user-update' routerLink="/user-update" style="margin-right:5%">Update Account</button>
+    <button *ngIf="user != null" (click)="logout()" mat-button id='logout' style="margin-right:5%">Logout</button>
   </mat-toolbar>
 </nav>
