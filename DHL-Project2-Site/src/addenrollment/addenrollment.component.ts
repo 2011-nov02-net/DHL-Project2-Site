@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Course } from 'src/shared/Models/course.model';
 import { User } from 'src/shared/Models/user.model';
 import { CourseService } from 'src/shared/Services/course.service';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-addenrollment',
@@ -9,43 +10,49 @@ import { CourseService } from 'src/shared/Services/course.service';
   styleUrls: ['./addenrollment.component.css']
 })
 export class AddenrollmentComponent implements OnInit {
-  allCourses: Course[];
-  userCourses: Course[];
-  notEnrolledCourses: Course[] = null;
+  allCourses: Course[] = [];
+  userCourses: Course[] = [];
+  notEnrolledCourses: Course[] = [];
   user: User;
   email: string;
-  columnsToDisplay = ['id', 'name', 'description'];
+  columnsToDisplay: string[] = ['id', 'name', 'description', 'enroll'];
+
+  @ViewChild(MatTable) table: MatTable<any>;
 
   constructor(private courseService: CourseService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.email = sessionStorage.getItem('currentEmail');
-	  this.courseService.getUserByEmail(this.email).then(u => this.user = u);
-    this.getAllCourses();
-    this.getUserCourses();
+	  this.user = await this.courseService.getUserByEmail(this.email).then(u => this.user = u);
+    this.allCourses = await this.getAllCourses();
+    this.userCourses = await this.getUserCourses();
     this.getCoursesNotEnrolledIn();
   }
 
-  async getAllCourses(): Promise<void>{
-    await this.courseService.getAllCourses()
+  getAllCourses(): Promise<Course[]>{
+    return this.courseService.getAllCourses()
       .then(c => this.allCourses = c);
   }
 
-  async getUserCourses(): Promise<void>{
-    await this.courseService.getEnrollments(this.email).then(c => this.userCourses = c);
+  getUserCourses(): Promise<Course[]>{
+    return this.courseService.getEnrollments(this.email).then(c => this.userCourses = c);
   }
 
   getCoursesNotEnrolledIn(): void {
-    debugger;  
-    let map = {};
-    this.userCourses.forEach(item =>{
-      map[item.name] = "Y";
-    })
-    this.allCourses.forEach(item =>{
-      if(map[item.name] !== "Y"){
-        this.notEnrolledCourses.push(item);
+    let i,j;
+    for(i = 0; i < this.allCourses.length; i++){
+      let isCourse = false;
+      for(j = 0; j < this.userCourses.length; j++){
+        if(this.allCourses[i].id === this.userCourses[j].id){
+          isCourse = true;
+          break;
+        }
       }
-    })
+      if(!isCourse){
+        this.notEnrolledCourses.push(this.allCourses[i]);
+      }
+    }
+    this.table.renderRows();
   }
-
+  
 }
