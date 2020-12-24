@@ -19,13 +19,19 @@ export class UserService {
     headers: new HttpHeaders({'Content-Type': "application/json"})
   };
 
+  getUserById(id: number): Promise<User> {
+    console.log("getUserById");
+    return this.http.get<User>(`${this.baseUrl}/User/${id}`, this.httpOptions)
+	    .toPromise(); 
+  }
+
   signUpUser(user:User): Promise<User> {
     return this.http.post<User>(`${this.baseUrl}/User?name=${user.fullName}&email=${user.email}&permission=${user.permission}`, this.httpOptions)
     .toPromise();
   }
 
-  updateUser(user:User): Promise<User> {
-    return this.http.put<User>(`${this.baseUrl}/User/${user.id}`, {}, this.httpOptions)
+  async updateUser(user:User): Promise<User> {
+    return this.http.put<User>(`${this.baseUrl}/User/${user.id}`, this.httpOptions)
     .toPromise();
   }
   

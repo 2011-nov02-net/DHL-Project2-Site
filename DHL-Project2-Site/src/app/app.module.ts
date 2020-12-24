@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserService } from 'src/shared/Services/user.service';
 import { UserComponent } from 'src/user/user.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
+import { UserUpdateComponent } from '../user-update/user-update.component';
 import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
 import { LogoutComponent } from '../logout/logout.component';
 
@@ -34,6 +35,7 @@ import { LogoutComponent } from '../logout/logout.component';
     CourseComponent,
     UserComponent,
     WelcomeComponent,
+    UserUpdateComponent,
     AddenrollmentComponent,
     LogoutComponent,
   ],
