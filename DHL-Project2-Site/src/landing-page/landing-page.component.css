@@ -19,10 +19,9 @@ main {
 .frosted-card {
   background-color: rgba(255,255,255,.05);
   overflow: hidden;
-}
-
-.frosted-card h2 {
-  color: gray;
+  text-align: center;
+  padding: 0.5%;
+  color: lightgray;
 }
 
 .frosted-card:before {
@@ -34,5 +33,5 @@ main {
   bottom: 0;
   left: 0;
   box-shadow: inset 0 0 1000px rgba(0,0,0,.5);
-  filter: blur(10%);
+  filter: blur(5%);
 }
