@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/shared/Models/user.model';
 import { UserService } from 'src/shared/Services/user.service';
+import { CourseService } from '../shared/Services/course.service';
+
 
 @Component({
   selector: 'app-user-update',
@@ -13,39 +15,44 @@ export class UserUpdateComponent implements OnInit {
 
   constructor(private router: Router, 
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private courseService: CourseService
   ) { }
   myForm: FormGroup;
-    fullName: FormControl;
+    name: FormControl;
     email: FormControl;
-    permission: FormControl;
 
   user: User;
   id: number;
+  emailString: string;
+  fullNameString: string;
 
   ngOnInit(): void {
-    this.fullName = new FormControl('');
+    this.emailString = sessionStorage.getItem('currentEmail');
+    this.fullNameString = sessionStorage.getItem('currentfullName');
+    this.name = new FormControl('');
     this.email = new FormControl('');
-    this.permission = new FormControl('');
 
     this.myForm = this.fb.group(
       {
-        'fullName': this.fullName,
+        'name': this.name,
         'email': this.email,
-        'permission': this.permission
       }
 
     )
   }
 
   async userUpdate() {
-    this.user = await this.userService.getUserById(this.id).then(u => this.user = u);
-    console.log(this.myForm.get('fullName').value);
+    debugger;
+    this.user = await this.courseService.getUserByEmail(this.emailString).then(u => this.user = u);
+    console.log(this.myForm.get('name').value);
     console.log(this.myForm.get('email').value);
     sessionStorage.setItem('currentEmail', this.myForm.get('email').value);
-    this.user.fullName = this.myForm.get('fullName').value;
+    sessionStorage.setItem('currentfullName', this.myForm.get('name').value)
+    this.user.fullName = this.myForm.get('name').value;
     this.user.email = this.myForm.get('email').value;
     await this.userService.updateUser(this.user);
+    this.router.navigate(['/course']);
   }
 
 }
