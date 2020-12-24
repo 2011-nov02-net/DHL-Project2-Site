@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap} from 'rxjs/operators';
-
 import { environment } from 'src/environments/environment';
 import { User } from '../Models/user.model';
 import { Course } from '../Models/course.model';
@@ -29,16 +26,25 @@ export class CourseService {
   }
 
   async getEnrollments(email: string) : Promise<Course[]> {
-	console.log("getEnrollments");
-    this.user = await this.getUserByEmail(email).then(u => this.user = u) as User;
-    console.log(this.user.id);
-    return this.http.get<Course[]>(`${this.baseUrl}/User/${this.user.id}/courses`, this.httpOptions)
-      .toPromise();
+    try {
+      console.log("getEnrollments");
+      this.user = await this.getUserByEmail(email);
+      console.log(this.user.id);
+      let url = `${this.baseUrl}/User/${this.user.id}/courses`;
+      return this.http.get<Course[]>(url, this.httpOptions).toPromise();
+    } catch (e) {
+      return null
+    }
   }
 
   async getInstructorCourses(email: string) : Promise<Course[]>{
-    this.user = await this.getUserByEmail(email).then(u => this.user = u) as User;
-    return this.http.get<Course[]>(`${this.baseUrl}/Course/instructor/${this.user.id}`, this.httpOptions).toPromise();
+    try {
+      this.user = await this.getUserByEmail(email);
+      let url = `${this.baseUrl}/Course/instructor/${this.user.id}`;
+      return this.http.get<Course[]>(url, this.httpOptions).toPromise();
+    } catch (e) {
+      return null
+    }
   }
 
   getAllCourses() : Promise<Course[]> {
