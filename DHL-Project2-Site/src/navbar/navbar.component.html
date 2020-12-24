@@ -4,7 +4,8 @@
     <span class="panel-title" id='page-name' style="margin-left:10%">Course Portal</span>
     <span class="spacer"></span>
     <button *ngIf="user == null" mat-button id='login' routerLink="/login" style="margin-right:10%">Login</button>
-    <button *ngIf="user == null" mat-button id="signup" routerLink="/signup" style="margin-right:10%">Sign Up</button>
-    <button *ngIf="user" mat-button id='logout' routerLink="/" style="margin-right:10%">Logout</button>
+	<button *ngIf="user == null" mat-button id="signup" routerLink="/signup" style="margin-right:10%">Sign Up</button>
+	<button *ngIf="user == null" mat-button id="enroll" routerLink="/enroll" style="margin-right:10%">Enroll</button>
+    <button *ngIf="user == null" mat-button id='logout' routerLink="/logout" style="margin-right:10%">Logout</button>
   </mat-toolbar>
 </nav>
