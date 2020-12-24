@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserService } from 'src/shared/Services/user.service';
 import { UserComponent } from 'src/user/user.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
+import { UserUpdateComponent } from '../user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { WelcomeComponent } from '../welcome/welcome.component';
     CourseComponent,
     UserComponent,
     WelcomeComponent,
+    UserUpdateComponent,
   ],
   imports: [
 	BrowserModule,

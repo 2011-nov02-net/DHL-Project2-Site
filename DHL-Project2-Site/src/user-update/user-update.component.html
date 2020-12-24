@@ -1,0 +1,9 @@
+<div class="login-page">
+    <div class="form">
+      <form class="register-form" method="PUT" [formGroup]="myForm">
+        <input type="text" placeholder="Full Name" formControlName="fullName">
+        <input type="email" placeholder="Email" formControlName="email">
+        <button (click)="userUpdate()">Update</button>
+      </form>
+    </div>
+  </div>
