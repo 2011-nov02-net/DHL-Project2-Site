@@ -31,7 +31,7 @@ export class UserService {
   }
 
   async updateUser(user:User): Promise<User> {
-    return this.http.put<User>(`${this.baseUrl}/User/${user.id}`, this.httpOptions)
+    return this.http.put<User>(`${this.baseUrl}/User/${user.id}?name=${user.fullName}&email=${user.email}&permission=${user.permission}`, this.httpOptions)
     .toPromise();
   }
   

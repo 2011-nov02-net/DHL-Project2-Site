@@ -26,6 +26,8 @@ import { WelcomeComponent } from '../welcome/welcome.component';
 import { UserUpdateComponent } from '../user-update/user-update.component';
 import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
 import { LogoutComponent } from '../logout/logout.component';
+import { LandingPageComponent } from '../landing-page/landing-page.component';
+import { CourseService } from 'src/shared/Services/course.service';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { LogoutComponent } from '../logout/logout.component';
     UserUpdateComponent,
     AddenrollmentComponent,
     LogoutComponent,
+    LandingPageComponent,
   ],
   imports: [
 	BrowserModule,
@@ -55,7 +58,7 @@ import { LogoutComponent } from '../logout/logout.component';
 	HttpClientModule,
 	MatTableModule
   ],
-  providers: [UserService],
+  providers: [UserService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,8 @@
 <div class="login-page">
+    <h2>Update Account For Email: {{emailString}}</h2>
     <div class="form">
       <form class="register-form" method="PUT" [formGroup]="myForm">
-        <input type="text" placeholder="Full Name" formControlName="fullName">
+        <input type="text" placeholder="Full Name" formControlName="name">
         <input type="email" placeholder="Email" formControlName="email">
         <button (click)="userUpdate()">Update</button>
       </form>
