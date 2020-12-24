@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'course', component: CourseComponent},
   { path: 'signup', component: UserComponent },
-  { path: 'user-update', component: UserUpdateComponent}
+  { path: 'user-update', component: UserUpdateComponent},
   { path: 'enroll', component: AddenrollmentComponent },
   { path: 'logout', component: LogoutComponent },
 ];
