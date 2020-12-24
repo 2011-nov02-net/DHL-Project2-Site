@@ -13,7 +13,7 @@ import { CourseService } from '../shared/Services/course.service';
 })
 export class UserUpdateComponent implements OnInit {
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
     private userService: UserService,
     private fb: FormBuilder,
     private courseService: CourseService
@@ -25,11 +25,11 @@ export class UserUpdateComponent implements OnInit {
   user: User;
   id: number;
   emailString: string;
-  fullNameString: string;
+  NameString: string;
 
   ngOnInit(): void {
     this.emailString = sessionStorage.getItem('currentEmail');
-    this.fullNameString = sessionStorage.getItem('currentfullName');
+    this.NameString = sessionStorage.getItem('currentName');
     this.name = new FormControl('');
     this.email = new FormControl('');
 
@@ -47,8 +47,8 @@ export class UserUpdateComponent implements OnInit {
     console.log(this.myForm.get('name').value);
     console.log(this.myForm.get('email').value);
     sessionStorage.setItem('currentEmail', this.myForm.get('email').value);
-    sessionStorage.setItem('currentfullName', this.myForm.get('name').value)
-    this.user.fullName = this.myForm.get('name').value;
+    sessionStorage.setItem('currentName', this.myForm.get('name').value)
+    this.user.name = this.myForm.get('name').value;
     this.user.email = this.myForm.get('email').value;
     await this.userService.updateUser(this.user);
     this.router.navigate(['/course']);

@@ -18,8 +18,10 @@ export class CourseComponent implements OnInit {
   user: User;
   selectedCourse: Course | any;
   columnsToDisplay = ['id', 'name', 'description'];
-  constructor(private courseService: CourseService,
-              private route: ActivatedRoute) { }
+  constructor(
+    private courseService: CourseService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.email = sessionStorage.getItem('currentEmail');

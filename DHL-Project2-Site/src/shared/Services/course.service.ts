@@ -42,10 +42,10 @@ export class CourseService {
   }
 
   getAllCourses() : Promise<Course[]> {
-	  return this.http.get<Course[]>(`${this.baseUrl}/course`, this.httpOptions).toPromise();
+	  return this.http.get<Course[]>(`${this.baseUrl}/Course`, this.httpOptions).toPromise();
   }
 
   enroll(courseId: number, userId: number) : Promise<any> {
-	  return this.http.post(`${this.baseUrl}/course/${courseId}/enrollment/${userId}`, this.httpOptions).toPromise();
+	  return this.http.post(`${this.baseUrl}/Course/${courseId}/enrollment/${userId}`, this.httpOptions).toPromise();
   }
 }

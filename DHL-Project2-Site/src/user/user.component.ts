@@ -11,43 +11,45 @@ import { UserService } from 'src/shared/Services/user.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private router: Router, 
-              private userService: UserService,
-              private fb: FormBuilder
-              ) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private fb: FormBuilder
+  ) { }
 
-
-    myForm: FormGroup;
-    fullName: FormControl;
-    email: FormControl;
-    permission: FormControl;
+  myForm: FormGroup;
+  name: FormControl;
+  email: FormControl;
+  permission: FormControl;
 
   ngOnInit(): void {
-    this.fullName = new FormControl('');
+    this.name = new FormControl('');
     this.email = new FormControl('');
     this.permission = new FormControl('');
 
-    this.myForm = this.fb.group(
-      {
-        'fullName': this.fullName,
-        'email': this.email,
-        'permission': this.permission
-      }
-
-    )
+    this.myForm = this.fb.group({
+      'name': this.name,
+      'email': this.email,
+      'permission': this.permission
+    })
   }
 
-    
-
   async signUp() {
-    console.log(this.myForm.get('fullName').value);
-    console.log(this.myForm.get('email').value);
-    var fullName = this.myForm.get('fullName').value;
+    var name = this.myForm.get('name').value;
     var email = this.myForm.get('email').value;
-    sessionStorage.setItem('currentEmail', this.myForm.get('email').value);
-    var newUser = new User(fullName, email);
-    await this.userService.signUpUser(newUser);
-    this.router.navigate(['/course']);
+    var newUser = new User(name, email);
+
+    console.log(name);
+    console.log(email);
+
+    sessionStorage.setItem('currentEmail', email);
+
+    try{
+      newUser = await this.userService.signUpUser(newUser);
+      this.router.navigate(['/course']);
+    } catch (e) {
+      this.router.navigate(['/'])
+    }
   }
 
 }
