@@ -9,7 +9,6 @@ import { UserComponent } from 'src/user/user.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { UserUpdateComponent } from 'src/user-update/user-update.component';
 import { AddenrollmentComponent } from 'src/addenrollment/addenrollment.component';
-import { LogoutComponent } from 'src/logout/logout.component';
 import { LandingPageComponent } from 'src/landing-page/landing-page.component';
 
 const routes: Routes = [
@@ -19,7 +18,6 @@ const routes: Routes = [
   { path: 'signup', component: UserComponent },
   { path: 'user-update', component: UserUpdateComponent},
   { path: 'enroll', component: AddenrollmentComponent },
-  { path: 'logout', component: LogoutComponent },
 ];
 
 @NgModule({

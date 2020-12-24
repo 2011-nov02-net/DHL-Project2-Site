@@ -24,14 +24,11 @@ import { UserComponent }          from '../user/user.component';
 import { WelcomeComponent }       from '../welcome/welcome.component';
 import { UserUpdateComponent }    from '../user-update/user-update.component';
 import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
-import { LogoutComponent }        from '../logout/logout.component';
 import { LandingPageComponent }   from '../landing-page/landing-page.component';
 
 import { UserService } from '../shared/Services/user.service';
 import { CourseService } from '../shared/Services/course.service';
 import { LoginService } from '../shared/Services/login.service';
-
-import { User } from '../shared/Models/user.model';
 
 @NgModule({
   declarations: [
@@ -43,7 +40,6 @@ import { User } from '../shared/Models/user.model';
     WelcomeComponent,
     UserUpdateComponent,
     AddenrollmentComponent,
-    LogoutComponent,
     LandingPageComponent,
   ],
   imports: [
