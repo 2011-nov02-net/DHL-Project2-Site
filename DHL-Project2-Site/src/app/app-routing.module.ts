@@ -7,12 +7,16 @@ import { CourseComponent } from '../course/course.component';
 import { UserComponent } from 'src/user/user.component';
 
 import { WelcomeComponent } from '../welcome/welcome.component';
+import { AddenrollmentComponent } from 'src/addenrollment/addenrollment.component';
+import { LogoutComponent } from 'src/logout/logout.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'course', component: CourseComponent},
   { path: 'signup', component: UserComponent },
+  { path: 'enroll', component: AddenrollmentComponent },
+  { path: 'logout', component: LogoutComponent },
 ];
 
 @NgModule({

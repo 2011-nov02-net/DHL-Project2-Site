@@ -11,16 +11,19 @@ import { CourseService } from 'src/shared/Services/course.service';
 export class AddenrollmentComponent implements OnInit {
   allCourses: Course[];
   userCourses: Course[];
+  notEnrolledCourses: Course[] = null;
   user: User;
   email: string;
+  columnsToDisplay = ['id', 'name', 'description'];
 
   constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
     this.email = sessionStorage.getItem('currentEmail');
-    this.courseService.getUserByEmail(this.email).then(u => this.user = u);
+	  this.courseService.getUserByEmail(this.email).then(u => this.user = u);
     this.getAllCourses();
     this.getUserCourses();
+    this.getCoursesNotEnrolledIn();
   }
 
   async getAllCourses(): Promise<void>{
@@ -33,7 +36,16 @@ export class AddenrollmentComponent implements OnInit {
   }
 
   getCoursesNotEnrolledIn(): void {
-    
+    debugger;  
+    let map = {};
+    this.userCourses.forEach(item =>{
+      map[item.name] = "Y";
+    })
+    this.allCourses.forEach(item =>{
+      if(map[item.name] !== "Y"){
+        this.notEnrolledCourses.push(item);
+      }
+    })
   }
 
 }

@@ -24,6 +24,7 @@ import { UserService } from 'src/shared/Services/user.service';
 import { UserComponent } from 'src/user/user.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
 import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
+import { LogoutComponent } from '../logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AddenrollmentComponent } from '../addenrollment/addenrollment.component
     UserComponent,
     WelcomeComponent,
     AddenrollmentComponent,
+    LogoutComponent,
   ],
   imports: [
 	BrowserModule,
