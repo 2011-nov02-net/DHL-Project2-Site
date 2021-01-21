@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 
+import { OktaAuthModule, OKTA_CONFIG } from '@okta/okta-angular';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent }           from './app.component';
@@ -29,6 +30,15 @@ import { LandingPageComponent }   from './component/landing-page/landing-page.co
 import { UserService } from './service/user.service';
 import { CourseService } from './service/course.service';
 import { LoginService } from './service/login.service';
+
+const config = {
+  issuer: 'https://dev-2875280.okta.com/oauth2/default',
+  pkce: true,
+  clientId: '0oa442ei06UcFel8c5d6',
+  redirectUri: `${window.location.origin}/login/callback`,
+  scopes: ['openid'],
+  postLogoutRedirectUri: window.location.origin
+};
 
 @NgModule({
   declarations: [
@@ -57,11 +67,13 @@ import { LoginService } from './service/login.service';
     ReactiveFormsModule,
     HttpClientModule,
     MatTableModule,
+    OktaAuthModule,
   ],
   providers: [
     UserService,
     CourseService,
     LoginService,
+    { provide: OKTA_CONFIG, useValue: config }
   ],
   bootstrap: [AppComponent]
 })

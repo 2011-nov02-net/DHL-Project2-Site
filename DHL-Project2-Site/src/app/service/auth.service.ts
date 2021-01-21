@@ -27,7 +27,7 @@ export class AuthService {
 
   login(): void {
     this.oktaAuth.signInWithRedirect({
-      originalUri: 'newsfeed'
+      originalUri: ''
     });
   }
 
