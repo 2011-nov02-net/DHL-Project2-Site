@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { OktaCallbackComponent } from '@okta/okta-angular';
 
 import { LoginComponent } from './component/login/login.component';
 import { CourseComponent } from './component/course/course.component';
@@ -13,7 +14,8 @@ import { LandingPageComponent } from 'src/app/component/landing-page/landing-pag
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login/callback', component: OktaCallbackComponent },
+  { path: 'logout', component: OktaCallbackComponent},
   { path: 'course', component: CourseComponent},
   { path: 'signup', component: UserComponent },
   { path: 'user-update', component: UserUpdateComponent},

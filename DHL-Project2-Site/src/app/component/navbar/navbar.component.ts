@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 import { LoginService } from '../../service/login.service';
 import { User } from '../../model/user.model';
@@ -10,22 +11,25 @@ import { User } from '../../model/user.model';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  loggedIn: boolean;
-  user: User;
+  isAuthenticated = false;
 
   constructor(
     private router: Router,
-    private data: LoginService
+    private oktaAuth: AuthService
   ) { }
 
   ngOnInit(): void {
-    this.data.currentUser.subscribe(user => this.user = user)
+    this.oktaAuth.subscribeAuthStateChange((authState: boolean) => {
+      this.isAuthenticated = authState;
+    });
+  }
+
+  login(): void {
+    this.oktaAuth.login();
   }
 
   logout(): void {
-    this.data.setUser(null);
-    sessionStorage.removeItem('currentEmail');
-    this.router.navigate(['/']);
+    this.oktaAuth.logout();
   }
 
 }
