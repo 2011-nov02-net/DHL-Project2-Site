@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { LoginService } from '../shared/Services/login.service';
-import { User } from '../shared/Models/user.model';
+import { LoginService } from '../../service/login.service';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-navbar',

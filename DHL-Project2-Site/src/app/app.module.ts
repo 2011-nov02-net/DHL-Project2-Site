@@ -17,18 +17,18 @@ import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent }           from './app.component';
-import { NavbarComponent }        from '../navbar/navbar.component';
-import { CourseComponent }        from '../course/course.component';
-import { LoginComponent }         from '../login/login.component';
-import { UserComponent }          from '../user/user.component';
-import { WelcomeComponent }       from '../welcome/welcome.component';
-import { UserUpdateComponent }    from '../user-update/user-update.component';
-import { AddenrollmentComponent } from '../addenrollment/addenrollment.component';
-import { LandingPageComponent }   from '../landing-page/landing-page.component';
+import { NavbarComponent }        from './component/navbar/navbar.component';
+import { CourseComponent }        from './component/course/course.component';
+import { LoginComponent }         from './component/login/login.component';
+import { UserComponent }          from './component/user/user.component';
+import { WelcomeComponent }       from './component/welcome/welcome.component';
+import { UserUpdateComponent }    from './component/user-update/user-update.component';
+import { AddenrollmentComponent } from './component/addenrollment/addenrollment.component';
+import { LandingPageComponent }   from './component/landing-page/landing-page.component';
 
-import { UserService } from '../shared/Services/user.service';
-import { CourseService } from '../shared/Services/course.service';
-import { LoginService } from '../shared/Services/login.service';
+import { UserService } from './service/user.service';
+import { CourseService } from './service/course.service';
+import { LoginService } from './service/login.service';
 
 @NgModule({
   declarations: [
