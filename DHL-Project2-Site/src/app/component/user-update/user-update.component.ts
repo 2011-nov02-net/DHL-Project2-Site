@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/shared/Models/user.model';
-import { UserService } from 'src/shared/Services/user.service';
-import { CourseService } from '../shared/Services/course.service';
+import { User } from 'src/app/model/user.model';
+import { UserService } from 'src/app/service/user.service';
+import { CourseService } from '../../service/course.service';
 
 
 @Component({

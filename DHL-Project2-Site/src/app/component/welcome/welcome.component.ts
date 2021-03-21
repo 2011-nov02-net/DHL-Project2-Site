@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User } from '../shared/Models/user.model';
+import { User } from '../../model/user.model';
 
 @Component({
   selector: 'app-welcome',

@@ -1,7 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { Course } from 'src/shared/Models/course.model';
-import { User } from 'src/shared/Models/user.model';
-import { CourseService } from 'src/shared/Services/course.service';
+import { Course } from 'src/app/model/course.model';
+import { User } from 'src/app/model/user.model';
+import { CourseService } from 'src/app/service/course.service';
 import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
 
@@ -60,5 +60,5 @@ export class AddenrollmentComponent implements OnInit {
     await this.courseService.enroll(courseId, userId).then();
     this.router.navigate(['/course']);
   }
-  
+
 }
